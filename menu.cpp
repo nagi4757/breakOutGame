@@ -1,25 +1,25 @@
 #include "Team.h"
 
 //-------------------------------------------------
-// game ¼Ò½ºÀÇ º¯¼ö °øÀ¯
-extern int life; // ¸ñ¼û
-extern int speed; // °ÔÀÓ¼Óµµ
+// game ì†ŒìŠ¤ì˜ ë³€ìˆ˜ ê³µìœ 
+extern int life; // ëª©ìˆ¨
+extern int speed; // ê²Œì„ì†ë„
 //-------------------------------------------------
 
 //-------------------------------------------------
-// menuÀÇ Àü¿ªº¯¼ö
-int num=1; // ¸Ş´º¸¦ Á¶Á¤ÇÏ±â À§ÇÑ º¯¼ö
-int num1=1; // °ÔÀÓ¼³Á¤¸¦ Á¶Á¤ÇÏ±â À§ÇÑ º¯¼ö
-int arrow; // Å°¹Ş´Â Á¤¼öÇü º¯¼ö
+// menuì˜ ì „ì—­ë³€ìˆ˜
+int num=1; // ë©”ë‰´ë¥¼ ì¡°ì •í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+int num1=1; // ê²Œì„ì„¤ì •ë¥¼ ì¡°ì •í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+int arrow; // í‚¤ë°›ëŠ” ì •ìˆ˜í˜• ë³€ìˆ˜
 //-------------------------------------------------
 
-int menu_display() // ¸Ş´º¸¦ ±¸¼ºÇÏ±â À§ÇÑ ÇÔ¼ö
+int menu_display() // ë©”ë‰´ë¥¼ êµ¬ì„±í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 {
 
    gotoxy(16, 4);
-   printf("ÆÀ  ÇÁ·ÎÁ§Æ®");
+   printf("íŒ€  í”„ë¡œì íŠ¸");
    gotoxy(13, 6);
-   printf("<< º®µ¹±ú±â °ÔÀÓ >>");
+   printf("<< ë²½ëŒê¹¨ê¸° ê²Œì„ >>");
    
    while(1)
    {
@@ -28,55 +28,55 @@ int menu_display() // ¸Ş´º¸¦ ±¸¼ºÇÏ±â À§ÇÑ ÇÔ¼ö
          if(num==1)
          {
             textcolor(11);
-            printf("[[ °ÔÀÓ½ÃÀÛ ]]");
+            printf("[[ ê²Œì„ì‹œì‘ ]]");
             textcolor(15);
          }
          else
-            printf("[[ °ÔÀÓ½ÃÀÛ ]]");
+            printf("[[ ê²Œì„ì‹œì‘ ]]");
       }
       gotoxy(15, 16);
       {
          if(num==2)
          {
             textcolor(11);
-            printf("[[ °ÔÀÓ¼³¸í ]]");
+            printf("[[ ê²Œì„ì„¤ëª… ]]");
             textcolor(15);
          }
          else
-            printf("[[ °ÔÀÓ¼³¸í ]]");
+            printf("[[ ê²Œì„ì„¤ëª… ]]");
       }
       gotoxy(15, 17);
       {
          if(num==3)
          {
             textcolor(11);
-            printf("[[ °ÔÀÓ¼³Á¤ ]]");
+            printf("[[ ê²Œì„ì„¤ì • ]]");
             textcolor(15);
          }
          else
-            printf("[[ °ÔÀÓ¼³Á¤ ]]");
+            printf("[[ ê²Œì„ì„¤ì • ]]");
       }
       gotoxy(15, 18);
       {
          if(num==4)
          {
             textcolor(11);
-            printf("[[ Á¦ ÀÛ ÀÚ ]]");
+            printf("[[ ì œ ì‘ ì ]]");
             textcolor(15);
          }
          else
-            printf("[[ Á¦ ÀÛ ÀÚ ]]");
+            printf("[[ ì œ ì‘ ì ]]");
       }
       gotoxy(15, 19);
       {
          if(num==5)
          {
             textcolor(11);
-            printf("[[ °ÔÀÓÁ¾·á ]]");
+            printf("[[ ê²Œì„ì¢…ë£Œ ]]");
             textcolor(15);
          }
          else
-            printf("[[ °ÔÀÓÁ¾·á ]]");
+            printf("[[ ê²Œì„ì¢…ë£Œ ]]");
       }
       arrow=getch();
       if(arrow==UP)
@@ -115,84 +115,84 @@ int menu_display() // ¸Ş´º¸¦ ±¸¼ºÇÏ±â À§ÇÑ ÇÔ¼ö
          }
       }
    }
-A: // ¹İº¹¹® while(1)¸¦ ¹ş¾î³ª±â À§ÇØ »ç¿ë
+A: // ë°˜ë³µë¬¸ while(1)ë¥¼ ë²—ì–´ë‚˜ê¸° ìœ„í•´ ì‚¬ìš©
    if(num==1)
-      game_start(); // °ÔÀÓ½ÃÀÛ
+      game_start(); // ê²Œì„ì‹œì‘
    if(num==2)
-      game_explain(); // °ÔÀÓ¼³¸í
+      game_explain(); // ê²Œì„ì„¤ëª…
    if(num==3)
-      game_set(); // °ÔÀÓ¼³Á¤
+      game_set(); // ê²Œì„ì„¤ì •
    if(num==4)
-      game_maker(); // Á¦ÀÛÀÚ
+      game_maker(); // ì œì‘ì
    if(num==5)
-	   exit(1); // °ÔÀÓÀ» Á¾·á½ÃÅ²´Ù.
+	   exit(1); // ê²Œì„ì„ ì¢…ë£Œì‹œí‚¨ë‹¤.
 }
-void game_start() // °ÔÀÓ½ÃÀÛ ÇÔ¼ö
+void game_start() // ê²Œì„ì‹œì‘ í•¨ìˆ˜
 {
-   systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
-   print_shape(); // °ÔÀÓÀ» ½ÇÇà½ÃÅ°´Â ¸ŞÀÎÇÔ¼ö
+   systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
+   print_shape(); // ê²Œì„ì„ ì‹¤í–‰ì‹œí‚¤ëŠ” ë©”ì¸í•¨ìˆ˜
 }
-void game_explain() // °ÔÀÓ¼³¸í ÇÔ¼ö
+void game_explain() // ê²Œì„ì„¤ëª… í•¨ìˆ˜
 {
-   systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
+   systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
    gotoxy(13,4);
-   printf("º®µ¹±ú±â °ÔÀÓ¹æ¹ı");
+   printf("ë²½ëŒê¹¨ê¸° ê²Œì„ë°©ë²•");
    gotoxy(6,8);
-   printf("“‡ÇâÅ° ÁÂ,¿ì·Î ¸·´ë±â¸¦ Á¶Á¤ÇÏ¿©");
+   printf("Â“Â‡í–¥í‚¤ ì¢Œ,ìš°ë¡œ ë§‰ëŒ€ê¸°ë¥¼ ì¡°ì •í•˜ì—¬");
    gotoxy(3,9);
-   printf("°øÀ» ÆÃ±â¸é¼­ º®µ¹À» ºÎ¼ö´Â °ÔÀÓÀÔ´Ï´Ù.");
+   printf("ê³µì„ íŒ…ê¸°ë©´ì„œ ë²½ëŒì„ ë¶€ìˆ˜ëŠ” ê²Œì„ì…ë‹ˆë‹¤.");
    gotoxy(6,11);
-   printf("º®µ¹ÀÇ »öÀº ·£´ıÀ¸·Î »ı¼ºÀÌ µÇ¸ç");
+   printf("ë²½ëŒì˜ ìƒ‰ì€ ëœë¤ìœ¼ë¡œ ìƒì„±ì´ ë˜ë©°");
    gotoxy(8,12);
-   printf("°¢ ºí·Ï»ö¸¶´Ù Á¡¼ö°¡ ´Ù¸£°Ô");
+   printf("ê° ë¸”ë¡ìƒ‰ë§ˆë‹¤ ì ìˆ˜ê°€ ë‹¤ë¥´ê²Œ");
    gotoxy(13,13);
-   printf("¹èºĞµÇ¾î ÀÖ½À´Ï´Ù.");
+   printf("ë°°ë¶„ë˜ì–´ ìˆìŠµë‹ˆë‹¤.");
    gotoxy(6,15);
    textcolor(9);
-   printf("¢Ã¢Ã¢Ã");
+   printf("â–£â–£â–£");
    gotoxy(13,15);
    textcolor(15);
-   printf(": 100 Á¡");
+   printf(": 100 ì ");
    gotoxy(6,15);
    textcolor(10);
    gotoxy(23,15);
-   printf("¢Ã¢Ã¢Ã");
+   printf("â–£â–£â–£");
    gotoxy(30,15);
    textcolor(15);
-   printf(": 200 Á¡");
+   printf(": 200 ì ");
    gotoxy(6,17);
    textcolor(11);
-   printf("¢Ã¢Ã¢Ã");
+   printf("â–£â–£â–£");
    gotoxy(13,17);
    textcolor(15);
-   printf(": 300 Á¡");
+   printf(": 300 ì ");
    gotoxy(6,17);
    textcolor(12);
    gotoxy(23,17);
-   printf("¢Ã¢Ã¢Ã");
+   printf("â–£â–£â–£");
    gotoxy(30,17);
    textcolor(15);
-   printf(": 400 Á¡");
+   printf(": 400 ì ");
    textcolor(13);
    gotoxy(6,19);
-   printf("¢Ã¢Ã¢Ã");
+   printf("â–£â–£â–£");
    gotoxy(13,19);
    textcolor(15);
-   printf(": 500 Á¡\n\n\n\n\n");
+   printf(": 500 ì \n\n\n\n\n");
    gotoxy(4, 21);
-   printf("¸Ş´º·Î µ¹¾Æ°¡±â: M\n\n\n");
+   printf("ë©”ë‰´ë¡œ ëŒì•„ê°€ê¸°: M\n\n\n");
    arrow=getch();
-   if(arrow==109) // mÅ°¸¦ ´©¸¦½Ã
+   if(arrow==109) // mí‚¤ë¥¼ ëˆ„ë¥¼ì‹œ
    {
-      systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
-      menu_display(); // ¸Ş´ºÆÇ
+      systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
+      menu_display(); // ë©”ë‰´íŒ
    }
 }
-void game_set() // °ÔÀÓ¼³Á¤ ÇÔ¼ö
+void game_set() // ê²Œì„ì„¤ì • í•¨ìˆ˜
 {
-   systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
+   systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
    gotoxy(13,4);
-   printf("°ÔÀÓ¼³Á¤");
+   printf("ê²Œì„ì„¤ì •");
    while(1)
    {
       gotoxy(13,10);
@@ -200,33 +200,33 @@ void game_set() // °ÔÀÓ¼³Á¤ ÇÔ¼ö
          if(num1==1)
          {
             textcolor(11); 
-            printf("¸ñ¼û     <  %2d  >", life);
+            printf("ëª©ìˆ¨     <  %2d  >", life);
             textcolor(15); 
          }
          else
-            printf("¸ñ¼û     <  %2d  >", life);
+            printf("ëª©ìˆ¨     <  %2d  >", life);
       }
      gotoxy(13,12);
       {
          if(num1==2)
          {
             textcolor(11);
-            printf("ÀüÃ¼ÀûÀÎ °ÔÀÓ¼Óµµ  <  %2d  >", speed);
+            printf("ì „ì²´ì ì¸ ê²Œì„ì†ë„  <  %2d  >", speed);
             textcolor(15);
          }
          else
-            printf("ÀüÃ¼ÀûÀÎ °ÔÀÓ¼Óµµ  <  %2d  >", speed);
+            printf("ì „ì²´ì ì¸ ê²Œì„ì†ë„  <  %2d  >", speed);
       }
       gotoxy(4, 21);
       {
          if(num1==3)
          {
             textcolor(11);
-            printf("¸Ş´º·Î µ¹¾Æ°¡±â");
+            printf("ë©”ë‰´ë¡œ ëŒì•„ê°€ê¸°");
             textcolor(15);
          }
          else
-            printf("¸Ş´º·Î µ¹¾Æ°¡±â");
+            printf("ë©”ë‰´ë¡œ ëŒì•„ê°€ê¸°");
       }
      arrow=getch();
       if(arrow==UP)
@@ -283,32 +283,20 @@ void game_set() // °ÔÀÓ¼³Á¤ ÇÔ¼ö
            }
      }
    }
-A: // ¹İº¹¹® while(1)¸¦ ¹ş¾î³ª±â À§ÇØ »ç¿ë
+A: // ë°˜ë³µë¬¸ while(1)ë¥¼ ë²—ì–´ë‚˜ê¸° ìœ„í•´ ì‚¬ìš©
    if(num1==3)
-      systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
-      menu_display(); // ¸Ş´ºÆÇ
+      systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
+      menu_display(); // ë©”ë‰´íŒ
  }
-void game_maker() // Á¦ÀÛÀÚ ÇÔ¼ö
+void game_maker() // ì œì‘ì í•¨ìˆ˜
 {
-   systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
-   gotoxy(8, 4);
-   printf("ÇÑ³²´ëÇĞ±³ ÄÄÇ»ÅÍ°øÇĞ°ú 2ÇĞ³â");
-   gotoxy(9, 6);
-   printf("ÇÁ·Î±×·¡¹Ö ÀÀ¿ë 02ºĞ¹İ<2Á¶>");
-   gotoxy(11, 12);
-   printf("Á¶Àå: 20110751 ÃÖÇö¿ì");
-   gotoxy(11, 14);
-   printf("Á¶¿ø: 20110748 À±ºÀÇö");
-   gotoxy(11, 16);
-   printf("Á¶¿ø: 20112728 ±è·®ÈÆ");
-   gotoxy(11, 18);
-   printf("Á¶¿ø: 20110739 Á¤ÂùÈ£");
+   systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
    gotoxy(4, 21);
-   printf("¸Ş´º·Î µ¹¾Æ°¡±â: M\n\n\n");
+   printf("ë©”ë‰´ë¡œ ëŒì•„ê°€ê¸°: M\n\n\n");
    arrow=getch();
-   if(arrow==109) // mÅ°¸¦ ´©¸¦½Ã
+   if(arrow==109) // mí‚¤ë¥¼ ëˆ„ë¥¼ì‹œ
    {
-      systemcls(); // ¿ŞÂÊ Æ² ¾È¿¡ °ø¹é ¾º¿ì±â
-      menu_display(); // ¸Ş´ºÆÇ
+      systemcls(); // ì™¼ìª½ í‹€ ì•ˆì— ê³µë°± ì”Œìš°ê¸°
+      menu_display(); // ë©”ë‰´íŒ
    }
 }
